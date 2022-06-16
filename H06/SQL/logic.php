@@ -1,6 +1,6 @@
 <?php
     $user = "schooluser";
-    $pass = "KingdomHearts3*";
+    $pass = "SchoolUser5*";
 
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=phpschool;port=3306', $user, $pass);
