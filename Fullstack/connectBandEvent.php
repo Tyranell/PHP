@@ -43,7 +43,6 @@
                 if ($result2) { 
                     while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { 
                         echo "<input type='checkbox' name='events[]' value='" . $row["idevent"] . "'> " . $row["naam"] . " " . $row["aanvangstijd"] . "<br>";
-                        // echo "<option value='" . $row["idevent"] . "'>" . $row["naam"] . "</option>"; 
                     } 
                 } 
             ?>
