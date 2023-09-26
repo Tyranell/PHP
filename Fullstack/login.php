@@ -10,4 +10,7 @@
     } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
+
+    echo password_hash("user", PASSWORD_DEFAULT);
+    
 ?>
