@@ -10,7 +10,24 @@
     } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
+?>
 
-    echo password_hash("user", PASSWORD_DEFAULT);
-    
+<head>
+</head>
+<body>
+  <form method="post">
+    Gebruikersnaam <input type="text" name="userName" value="" />
+    Wachtwoord <input type="password" name="passWord" value="" />
+    <input type="submit" name="knop" value="Verstuur" />
+  </form>
+</body>
+
+<?php
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['userName'];
+    $pass = $_POST['passWord'];
+    $sqlUser = "SELECT username FROM user WHERE username = ";
+    $resultUser = $conn->exec($sqlUser);
+    echo $resultUser;
+   }
 ?>
