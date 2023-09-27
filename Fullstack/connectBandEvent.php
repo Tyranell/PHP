@@ -71,7 +71,8 @@
                     while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { 
                         echo "<input type='checkbox' name='events[]' value='" . $row["idevent"] . "'> " . $row["eventNaam"] . " " . $row["aanvangstijd"] . "<br>";
                     } 
-                } 
+                }
+                print_r($result2->fetch(PDO::FETCH_ASSOC));
             ?>
         </div>
         <div>
@@ -82,7 +83,7 @@
 
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $bandname = $_POST['bandNaam'];
+        $bandname = $_POST['bandname'];
         $events = $_POST['events'];
         $evenLeng = count($events);
         
