@@ -35,12 +35,11 @@
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if(password_verify($pass, $result['wachtwoord'])) {
-      //echo "help slightly less woooooooo";
       $_SESSION["username"] = $result['username'];
       $_SESSION["admin"] = $result['admin'];
-
+      header('Location: homepage.php');
     } else {
-      echo "HELP";
+      echo "Invalid login.";
     }
    }
 ?>

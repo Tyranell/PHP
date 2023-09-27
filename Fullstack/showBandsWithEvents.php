@@ -11,6 +11,9 @@
     } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
+    if (!isset($_SESSION["admin"])) {
+        header("Location: homepage.php");
+    }
 ?>
 
 <head>
@@ -18,9 +21,31 @@
         table, th, td {
             border: 1px solid;
         }
+
+        a {
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 10px;   
+        }
     </style>
 </head>
 <body>
+    <?php
+        if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
+        echo '<a href="homepage.php">Homepagina</a>';
+        echo '<a href="enterBand.php">Band toevoegen</a>';
+        echo '<a href="makeEvents.php">Events toevoegen</a>';
+        echo '<a href="connectBandEvent.php">Bands aan events toevoegen</a>';
+        }
+
+        if(isset($_SESSION["admin"])) {
+        echo '<a href="showBandsWithEvents.php">Planning</a>';
+        }
+        echo '<a href="logout.php">Logout</a>';
+    ?>
     <form method="post" class="flexbox">
         <table>
             <tr>
