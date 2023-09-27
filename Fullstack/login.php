@@ -1,7 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+  session_start();
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=fullstack", $username, $password);
@@ -23,7 +24,7 @@
 </body>
 
 <?php
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST['userName'];
     $pass = $_POST['passWord'];
 
@@ -34,7 +35,10 @@
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if(password_verify($pass, $result['wachtwoord'])) {
-      echo "help slightly less";
+      //echo "help slightly less woooooooo";
+      $_SESSION["username"] = $result['username'];
+      $_SESSION["admin"] = $result['admin'];
+
     } else {
       echo "HELP";
     }

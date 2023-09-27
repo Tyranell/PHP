@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -30,7 +31,7 @@
                 $result1 = $conn->query($sql1); 
                 if ($result1) { 
                     while ($row = $result1->fetch(PDO::FETCH_ASSOC)) { 
-                        echo "<option value='" . $row["idband"] . "'>" . $row["naam"] . "</option>"; 
+                        echo "<option value='" . $row["idband"] . "'>" . $row["bandNaam"] . "</option>"; 
                         } 
                     }
                 ?>
@@ -42,7 +43,7 @@
                 $result2 = $conn->query($sql2); 
                 if ($result2) { 
                     while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { 
-                        echo "<input type='checkbox' name='events[]' value='" . $row["idevent"] . "'> " . $row["naam"] . " " . $row["aanvangstijd"] . "<br>";
+                        echo "<input type='checkbox' name='events[]' value='" . $row["idevent"] . "'> " . $row["eventNaam"] . " " . $row["aanvangstijd"] . "<br>";
                     } 
                 } 
             ?>
@@ -55,7 +56,7 @@
 
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $bandname = $_POST['bandname'];
+        $bandname = $_POST['bandNaam'];
         $events = $_POST['events'];
         $evenLeng = count($events);
         
