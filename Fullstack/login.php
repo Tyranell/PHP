@@ -11,6 +11,10 @@
     } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
+
+    if (isset($_SESSION["admin"])) {
+      header("Location: homepage.php");
+    }
 ?>
 
 <head>
