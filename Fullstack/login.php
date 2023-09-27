@@ -26,8 +26,17 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST['userName'];
     $pass = $_POST['passWord'];
-    $sqlUser = "SELECT username FROM user WHERE username = ";
-    $resultUser = $conn->exec($sqlUser);
-    echo $resultUser;
+
+    $stmt = $conn->prepare("SELECT * FROM user WHERE username = :user");
+    $stmt->bindParam(':user', $user);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(password_verify($pass, $result['wachtwoord'])) {
+      echo "help slightly less";
+    } else {
+      echo "HELP";
+    }
    }
 ?>
