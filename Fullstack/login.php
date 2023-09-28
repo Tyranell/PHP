@@ -18,8 +18,23 @@
 ?>
 
 <head>
+    <style>
+      a {
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 10px;   
+        }
+    </style>
 </head>
 <body>
+  <?php
+        if(!isset($_SESSION["admin"])) {
+            echo '<a href="homepage.php">Homepagina</a>';
+        }
+  ?>
   <form method="post">
     Gebruikersnaam <input type="text" name="userName" value="" />
     Wachtwoord <input type="password" name="passWord" value="" />

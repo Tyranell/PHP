@@ -24,8 +24,10 @@
     <body>
         <header><h1>Homepagina</h1></header>
         <?php
+            if(isset($_SESSION["admin"])) {
+                echo '<a href="homepage.php">Homepagina</a>';
+            }
             if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
-            echo '<a href="homepage.php">Homepagina</a>';
             echo '<a href="enterBand.php">Band toevoegen</a>';
             echo '<a href="makeEvents.php">Events toevoegen</a>';
             echo '<a href="connectBandEvent.php">Bands aan events toevoegen</a>';
