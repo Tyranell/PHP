@@ -58,7 +58,7 @@
             </tr>
                 <?php 
                     $previousEvent = null;
-                    $sql = "SELECT * FROM band JOIN band_has_event ON band.idband = band_has_event.band_idband JOIN event ON event.idevent = band_has_event.event_idevent";
+                    $sql = "SELECT * FROM band JOIN band_has_event ON band.idband = band_has_event.band_idband JOIN event ON event.idevent = band_has_event.event_idevent ORDER BY event.idevent";
                     $result = $conn->query($sql);
                     
                     if ($result) {
