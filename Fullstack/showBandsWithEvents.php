@@ -48,13 +48,13 @@
     ?>
     <form method="post" class="flexbox">
         <table>
-            <tr>
-                <th>Band naam</th>
-                <th>Genre</th>
+            <tr>                
                 <th>Event naam</th>
                 <th>Datum</th>
                 <th>Aanvangstijd</th>
                 <th>Entreeprijs</th>
+                <th>Band naam</th>
+                <th>Genre</th>            
             </tr>
                 <?php 
                     $previousEvent = null;

@@ -52,11 +52,14 @@
 
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['bandNaam'];
+        $sql = $conn->prepare("INSERT INTO band(bandNaam, genre) VALUES(:bandName, :genre)");
+        $bandName = $_POST['bandNaam'];
         $genre = $_POST['genre'];
 
-        $sql = "INSERT INTO band(bandNaam, genre) VALUES('$name', '$genre')";
-        $conn->exec($sql);
+        $sql->bindParam(':bandName', $bandName);
+        $sql->bindParam(':genre', $genre); 
+        
+        $sql->execute();
         echo "New record created successfully.";
     }
 ?>
