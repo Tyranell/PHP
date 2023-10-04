@@ -54,19 +54,19 @@
 
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $sql = $conn->prepare("INSERT INTO event(datum, eventNaam, entreeprijs, aanvangstijd) VALUES(:date, :nameEvent, :price, :openingTime)");
+        $sql = $conn->prepare("INSERT INTO event(datum, eventNaam, entreeprijs, aanvangstijd) VALUES(?, ?, ?, ?)");
 
         $date = $_POST['datum'];
         $openingTime = $_POST['aanvangstijd'];
         $nameEvent = $_POST['naamEvent'];
         $price = $_POST['prijs'];
 
-        $sql->bindParam(':date', $date);
+        /* $sql->bindParam(':date', $date);
         $sql->bindParam(':nameEvent', $nameEvent);
         $sql->bindParam(':price', $price);
-        $sql->bindParam(':openingTime', $openingTime);
+        $sql->bindParam(':openingTime', $openingTime);*/
         
-        $sql->execute();
+        $sql->execute([$date, $nameEvent, $price, $openingTime]);
         echo "New record created successfully.";
     }
 
