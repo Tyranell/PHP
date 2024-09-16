@@ -43,7 +43,7 @@
         }
         echo '<a href="logout.php">Logout</a>';
     ?>
-  <form action="makeEvents.php" method="post">
+    <form action="makeEvents.php" method="post">
     Datum <input type="date" name="datum" value="" /> Aanvangstijd
     <input type="time" name="aanvangstijd" value="" /> Naam event
     <input type="text" name="naamEvent" value="" /> Prijs
